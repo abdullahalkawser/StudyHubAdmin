@@ -1,12 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  StyleSheet, Text, View, FlatList, TouchableOpacity, 
-  Modal, TextInput, ScrollView, Alert, ActivityIndicator, 
-  StatusBar, KeyboardAvoidingView, Platform 
+import { Feather, FontAwesome5, Ionicons } from '@expo/vector-icons';
+import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+import {
+  ActivityIndicator,
+  Alert,
+  FlatList,
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  ScrollView,
+  StatusBar,
+  StyleSheet, Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native';
-import { MaterialIcons, Ionicons, Feather, FontAwesome5 } from '@expo/vector-icons';
-import { db } from '../../FirebaseConfig'; 
-import { collection, addDoc, getDocs, updateDoc, doc, deleteDoc } from 'firebase/firestore';
+import { db } from '../../FirebaseConfig';
 
 const AssignmentManagement = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -31,7 +40,7 @@ const AssignmentManagement = () => {
       const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setAssignments(data.sort((a, b) => b.createdAt?.seconds - a.createdAt?.seconds));
     } catch (error) {
-      Alert.alert("Error", "Failed to load assignments!");
+      Alert.alert("Error", "Failed");
     } finally {
       setLoading(false);
     }
