@@ -121,7 +121,7 @@ const Dashboard = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F9FAFB', paddingHorizontal: 20 },
+  container: { flex: 1, backgroundColor: '#F9FAFB', paddingHorizontal: 30 },
   header: { marginTop: 50, marginBottom: 25 },
   welcomeText: { fontSize: 16, color: '#6B7280', fontWeight: '500' },
   userName: { fontSize: 24, fontWeight: 'bold', color: '#111827' },
